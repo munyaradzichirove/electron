@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Landify Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- =======================================================
+  * Template Name: Landify
+  * Template URL: https://bootstrapmade.com/landify-bootstrap-landing-page-template/
+  * Updated: Aug 04 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+    <style>
+    #map { height: 400px; width: 100%; }
+    
+  </style>
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">Landify</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+   
+     
+    <!-- Features Section -->
+    <section id="features" class="features section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Features</span>
+        <h2>Features</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="tabs-wrapper">
+          <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+
+            <li class="nav-item">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                <div class="tab-icon">
+                  <i class="bi bi-rocket-takeoff"></i>
+                </div>
+                <div class="tab-content">
+                  <h5 id="consnected_ip">Connection Status</h5>
+                  <span>Cutting-edge solutions</span>
+                </div>
+              </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                <div class="tab-icon">
+                  <i class="bi bi-shield-shaded"></i>
+                </div>
+                <div class="tab-content">
+                  <h5>Interfaces</h5>
+                  <span>Advanced protection</span>
+                </div>
+              </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                <div class="tab-icon">
+                  <i class="bi bi-lightning-charge"></i>
+                </div>
+                <div class="tab-content">
+                  <h5>Performance</h5>
+                  <span>Lightning fast speed</span>
+                </div>
+              </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
+                <div class="tab-icon">
+                  <i class="bi bi-heart-pulse"></i>
+                </div>
+                <div class="tab-content">
+                  <h5>Support</h5>
+                  <span>24/7 assistance</span>
+                </div>
+              </a>
+            </li><!-- End tab nav item -->
+
+          </ul>
+
+          <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="tab-pane fade active show" id="features-tab-1">
+              <div class="row align-items-center">
+
+                <div class="col-lg-5">
+                  <div class="content-wrapper">
+                    <div class="icon-badge">
+                      <i class="bi bi-rocket-takeoff"></i>
+                    </div>
+                    <h3 id="connected_ip">Please wait...</h3>
+                  <p style="text-align:justify; color:#444; font-size:15px; line-height:1.6; max-width:520px; margin:0 auto 20px;">
+                    This panel shows your active public IP address, service provider, and approximate location. 
+                    Updates apply instantly when your network state changes.
+                  </p>
+                    <div class="stats-row">
+                      <div class="stat-item">
+                        <div class="stat-number">City</div>
+                        <div class="stat-label" id="city">Loading..</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">Country</div>
+                        <div class="stat-label" id="country">Loading...</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">ISP</div>
+                        <div class="stat-label" id="isp">Loading...</div>
+                      </div>
+                    </div>
+
+                  <a href="#" class="btn btn-danger d-inline-flex align-items-center gap-2">
+                    Disconnect <i class="bi bi-plug"></i>
+                  </a>
+
+                  </div>
+                </div>
+
+                <div class="col-lg-7">
+                  <div class="visual-content">
+                    <div id="map" class="main-image">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End tab content item -->
+
+            <div class="tab-pane fade" id="features-tab-2">
+              <div class="row align-items-center">
+
+                <div class="col-lg-5">
+                  <div class="content-wrapper">
+                    <div class="icon-badge">
+                      <i class="bi bi-shield-shaded"></i>
+                    </div>
+                    <h3>Advanced Security</h3>
+                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore.</p>
+
+                    <div class="feature-grid">
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Temporibus autem quibusdam et aut officiis</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Nam libero tempore cum soluta nobis</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Itaque earum rerum hic tenetur a sapiente</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Quis autem vel eum iure reprehenderit qui</span>
+                      </div>
+                    </div>
+
+                    <div class="stats-row">
+                      <div class="stat-item">
+                        <div class="stat-number">256-bit</div>
+                        <div class="stat-label">Encryption</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">ISO</div>
+                        <div class="stat-label">Certified</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">GDPR</div>
+                        <div class="stat-label">Compliant</div>
+                      </div>
+                    </div>
+
+                    <a href="#" class="btn-primary">Learn More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="col-lg-7">
+                  <div class="visual-content">
+                  <div class="main-image">
+                        <div id="interfaces" 
+                            style="padding: 15px; 
+                                    max-height: 600px; 
+                                    max-width: 100%; 
+                                    overflow-y: auto; 
+                                    overflow-x: auto; 
+                                    border: 1px solid #ddd; 
+                                    border-radius: 8px;
+                                    background-color: #f9f9f9;">
+                        </div>
+                      </div>
+                      </div>
+                     </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End tab content item -->
+
+            <div class="tab-pane fade" id="features-tab-3">
+              <div class="row align-items-center">
+
+                <div class="col-lg-5">
+                  <div class="content-wrapper">
+                    <div class="icon-badge">
+                      <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <h3>Lightning Performance</h3>
+                    <p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel.</p>
+
+                    <div class="feature-grid">
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Excepteur sint occaecat cupidatat non proident</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Sunt in culpa qui officia deserunt mollit</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Sed ut perspiciatis unde omnis iste natus</span>
+                      </div>
+                    </div>
+
+                    <div class="stats-row">
+                      <div class="stat-item">
+                        <div class="stat-number">0.5s</div>
+                        <div class="stat-label">Load Time</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Optimized</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">CDN</div>
+                        <div class="stat-label">Global</div>
+                      </div>
+                    </div>
+
+                    <a href="#" class="btn-primary">Learn More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="col-lg-7">
+                  <div class="visual-content">
+                    <div class="main-image">
+                <div id="tcpdump-log" style="
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 10px;
+    background: #111;
+    color: #0f0;
+    font-family: monospace;
+    border-radius: 5px;
+"></div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End tab content item -->
+
+            <div class="tab-pane fade" id="features-tab-4">
+              <div class="row align-items-center">
+
+                <div class="col-lg-5">
+                  <div class="content-wrapper">
+                    <div class="icon-badge">
+                      <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <h3>Munyaradzi Chirove</h3>
+                    <p>I am a software engineer building a lightweight WireGuard connection manager.This interface provides real-time visibility into tunnel status, network identity, and routing changes.
+
+                    <div class="feature-grid">
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>WireGuard VPN</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>UDP-based Fast Tunnel</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>End-to-End Encryption</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Real-time Connection Monitoring</span>
+                      </div>
+                    </div>
+
+                    <div class="stats-row">
+                      <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Available</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">30min</div>
+                        <div class="stat-label">Response</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-number">Expert</div>
+                        <div class="stat-label">Team</div>
+                      </div>
+                    </div>
+
+                    <a href="https://mrchirove.web.app" class="btn-primary">Learn More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="col-lg-7">
+                  <div class="visual-content">
+                    <div class="main-image">
+                      <img src="assets/img/features/features-1.webp" alt="" class="img-fluid">
+                      <div class="floating-card">
+                        <i class="bi bi-headset"></i>
+                        <div class="card-content">
+                          <span>Support</span>
+                          <strong>Always Here</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End tab content item -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Contact</span>
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5">
+          <div class="col-lg-6">
+            <div class="content" data-aos="fade-up" data-aos-delay="200">
+              <div class="section-category mb-3">Contact US</div>
+              <h2 class="display-5 mb-4">Nemo enim ipsam voluptatem quia voluptas aspernatur</h2>
+              <p class="lead mb-4">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+
+              <div class="contact-info mt-5">
+                <div class="info-item d-flex mb-3" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-envelope-at me-3"></i>
+                  <span>info@example.com</span>
+                </div>
+
+                <div class="info-item d-flex mb-3" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bi bi-telephone me-3"></i>
+                  <span>+1 5589 55488 558</span>
+                </div>
+
+                <div class="info-item d-flex mb-4" data-aos="fade-up" data-aos-delay="500">
+                  <i class="bi bi-geo-alt me-3"></i>
+                  <span>A108 Adam Street, New York, NY 535022</span>
+                </div>
+
+                <a href="#" class="map-link d-inline-flex align-items-center" data-aos="fade-up" data-aos-delay="600">
+                  Open Map
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="contact-form card" data-aos="fade-up" data-aos-delay="300">
+              <div class="card-body p-4 p-lg-5">
+
+                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+                  <div class="row gy-4">
+
+                    <div class="col-12">
+                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    </div>
+
+                    <div class="col-12 ">
+                      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                    </div>
+
+                    <div class="col-12">
+                      <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    </div>
+
+                    <div class="col-12">
+                      <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    </div>
+
+                    <div class="col-12 text-center">
+                      <div class="loading">Loading</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                      <button type="submit" class="btn btn-submit w-100">Submit Message</button>
+                    </div>
+
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Landify</span>
+          </a>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>A108 Adam Street</p>
+          <p>New York, NY 535022</p>
+          <p>United States</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p><strong>Email:</strong> <span>info@example.com</span></p>
+        </div>
+
+      </div>
+    </div>
+      
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  const map = L.map('map').setView([0, 0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  let marker;
+
+  async function lookup(ip) {
+    try {
+      // Hardcoded IP demo if not provided
+      if (!ip) ip = '77.246.55.24';
+
+      const res = await fetch(`/getGeo/${ip}`);
+      if (!res.ok) throw new Error('Failed to fetch geo info');
+
+      const data = await res.json();
+      if (!data.lat || !data.lon) throw new Error('Invalid location data');
+
+      document.getElementById('connected_ip').innerText = 
+        `IP: ${data.query}`;
+      document.getElementById('city').innerText = 
+        `${data.city}`;
+      document.getElementById('country').innerText = 
+        `${data.country}`;
+
+      document.getElementById('isp').innerText = 
+        `${data.isp}`;
+
+      if(marker) map.removeLayer(marker);
+      marker = L.marker([data.lat, data.lon]).addTo(map);
+      map.setView([data.lat, data.lon], 5);
+
+    } catch(err) {
+      alert(err.message);
+      console.error(err);
+    }
+  }
+
+  // Call the function immediately with hardcoded IP
+  lookup('77.246.55.224');
+</script>
+
+
+
+<script>
+fetch('/interfaces')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('interfaces');
+
+    Object.entries(data).forEach(([iface, entries]) => {
+      const block = document.createElement('div');
+      block.innerHTML = `<h5 style="margin-bottom:5px;">${iface}</h5>`;
+
+      entries.forEach(e => {
+        const pre = document.createElement('pre');
+        pre.style.margin = '0 0 5px 0'; // small spacing between entries
+        pre.style.fontSize = '13px';     // optional: smaller font
+        pre.style.lineHeight = '1.3';    // tighter lines
+        pre.textContent = `inet: ${e.address || '-'}
+family: ${e.family}
+netmask: ${e.netmask || '-'}
+mac: ${e.mac || '-'}
+internal: ${e.internal}`;
+        block.appendChild(pre);
+      });
+
+      container.appendChild(block);
+    });
+  });
+
+</script>
+
+<script>
+  const ws = new WebSocket(`ws://${location.host}`);
+
+  ws.onmessage = (event) => {
+    const container = document.getElementById('tcpdump-output');
+    container.textContent += event.data + '\n';
+    container.scrollTop = container.scrollHeight; // auto scroll
+  };
+</script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

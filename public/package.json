@@ -1,0 +1,18 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-packager . MyApp --platform=linux --arch=x64 --out=out --overwrite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^39.2.6",
+    "electron-packager": "^17.1.2"
+  }
+}
