@@ -425,8 +425,23 @@ ws.onmessage = (event) => {
   container.textContent += event.data + '\n';
   container.scrollTop = container.scrollHeight; // auto scroll
 
-  console.log(event.data);
 };
+</script>
+<script>
+const WG_IP = '41.221.144.142';
+
+setInterval(() => {
+  fetch('https://api.ipify.org?format=json')
+    .then(res => res.json())
+    .then(data => {
+      if(data.ip === WG_IP){
+        console.log('WireGuard is connected');
+      } else {
+        console.log('Not connected');
+      }
+    })
+    .catch(err => console.error(err));
+}, 2000); 
 </script>
 
   <!-- Vendor JS Files -->
