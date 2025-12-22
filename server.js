@@ -11,7 +11,7 @@ const WS_PORT = 3002;
 
 
 // simple fixed login
-const DEMO_USER = "admin";
+const DEMO_USER = "munyaradzi";
 const DEMO_PASS = "admin";
 
 // Serve static frontend
