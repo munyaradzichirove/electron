@@ -110,11 +110,14 @@ npm run build
 ---
 
 ## Contact
+Contact
 
-**Author:** Munyaradzi Chirove
-📧 [chirovemunyaradzi@gmail.com](mailto:chirovemunyaradzi@gmail.com)
+Author: Munyaradzi Chirove
+🌐 Website
+
+📧 chirovemunyaradzi@gmail.com
+
 📞 +263 78 610 3016
-
 ---
 
 ## License
