@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const os = require('os');
 const path = require('path');
@@ -9,17 +8,12 @@ const app = express();
 const HTTP_PORT = 3001;
 const WS_PORT = 3002;
 
-
-// simple fixed login
 const DEMO_USER = "munyaradzi";
 const DEMO_PASS = "admin";
 
-// Serve static frontend
-// serve static files first
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-// serve login page first
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
@@ -30,19 +24,15 @@ app.get('/home', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-  if (username === DEMO_USER && password === DEMO_PASS) {
-    // redirect to home
-    res.redirect('/home');
-  } else {
-    // wrong credentials
-    res.send('<h2>Login failed. <a href="/">Try again</a></h2>');
-  }
+ if (username === DEMO_USER && password === DEMO_PASS) {
+  res.json({ success: true });
+} else {
+  res.status(401).json({ success: false, message: "Invalid credentials" });
+}
 });
-// then serve static files (CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// --- IP Geolocation ---
 app.get('/getGeo/:ip', async (req, res) => {
   const ip = req.params.ip;
   try {
@@ -66,22 +56,18 @@ app.get('/getGeo/:ip', async (req, res) => {
   }
 });
 
-// --- Network Interfaces ---
 app.get('/interfaces', (req, res) => {
   const interfaces = os.networkInterfaces();
   res.json(interfaces);
 });
 
-// --- Start HTTP server ---
 app.listen(HTTP_PORT, () => console.log(`HTTP server running on http://localhost:${HTTP_PORT}`));
 
-// --- WebSocket TCPDump Streaming ---
 const wss = new WebSocket.Server({ port: WS_PORT });
 const clients = new Set();
 
-// Spawn a single tcpdump process for all clients
 
-const tcpdump = spawn('sudo', ['tcpdump', '-i', 'wlo1', '-l', '-U']); // -l = line buffered, -U = unbuffered
+const tcpdump = spawn('sudo', ['tcpdump', '-i', 'wlo1', '-l', '-U']);
 tcpdump.stderr.on('data', (data) => {
   console.error('tcpdump stderr:', data.toString());
 });
@@ -101,9 +87,9 @@ wss.on('connection', (ws) => {
 });
 
 tcpdump.stdout.on('data', (data) => {
-  const lines = data.toString().split('\n'); // split chunk into lines
+  const lines = data.toString().split('\n'); 
   for (const line of lines) {
-    if (!line) continue; // skip empty lines
+    if (!line) continue; 
     for (const client of clients) {
       if (client.readyState === WebSocket.OPEN) {
         client.send(line);

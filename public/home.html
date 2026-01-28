@@ -21,17 +21,10 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+
   <link href="assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-  <!-- =======================================================
-  * Template Name: WireGuard VPN Client
-  * Template URL: https://bootstrapmade.com/WireGuard VPN Client-bootstrap-landing-page-template/
-  * Updated: Aug 04 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -44,18 +37,12 @@
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
         <h1 class="sitename">WireGuard VPN Client</h1>
       </a>
 <a href="#" id="connectionbtn" class="btn btn-success d-inline-flex align-items-center gap-2">
   <i class="bi bi-wifi-off"></i> Connect
 </a>
  
-<!-- <a href="#" class="btn btn-danger d-inline-flex align-items-center gap-2" id="connected_vpn">
-    Disconnect <i class="bi bi-plug"></i>
-</a> -->
-
     </div>
   </header>
 
@@ -237,20 +224,19 @@
                   <div class="visual-content">
                   <div class="main-image">
                   <div id="tcpdump-output" style="
-                      background-color: #300a24; /* dark purple/brownish */
-                      color: white;           /* orange-ish text */
-                      font-family: monospace;   /* terminal font */
+                      background-color: #300a24;
+                      color: white;           
+                      font-family: monospace;  
                       padding: 10px;
                       max-height: 500px;
                       overflow-y: auto;
-                      white-space: pre;         /* preserve spacing */
+                      white-space: pre;        
                       border-radius: 5px;
                   "></div>
                   </div>
                   </div>
                 </div>
-           
-    </section><!-- /Features Section -->
+    </section>
   </main>
 
 
@@ -262,7 +248,7 @@
           <a href="index.html" class="logo d-flex align-items-center">
             <span class="sitename">WireGuard VPN Client</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p><Canvas>WireGuard VPN Client lets you stay secure online with minimal setup. Protect your data, maintain privacy, and enjoy fast, stable connections wherever you are.</p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -295,7 +281,6 @@
 
       </div>
     </div>
-      
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">WireGuard VPN</strong> <span>All Rights Reserved</span></p>
@@ -318,8 +303,7 @@
   async function lookup(ip) {
     try {
       // Hardcoded IP demo if not provided
-
-      const res = await fetch(`/getGeo/${ip}`);
+      const res = await fetch(`http://127.0.0.1:3001/getGeo/${ip}`);
       if (!res.ok) throw new Error('Failed to fetch geo info');
 
       const data = await res.json();
@@ -347,7 +331,7 @@
 
   // Call the function immediately with hardcoded IP
   var ip="";
-  WG_IP="41.221.144.142";
+  WG_IP="84.247.162.4";
   const connectionBtn = document.getElementById('connectionbtn');
   fetch('https://api.ipify.org?format=json')
     .then(res => res.json())
@@ -371,7 +355,7 @@ if(ip === WG_IP) {
 
 </script>
 <script>
-fetch('/interfaces')
+fetch('http://127.0.0.1:3001/interfaces')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('interfaces');
@@ -382,9 +366,9 @@ fetch('/interfaces')
 
       entries.forEach(e => {
         const pre = document.createElement('pre');
-        pre.style.margin = '0 0 5px 0'; // small spacing between entries
-        pre.style.fontSize = '13px';     // optional: smaller font
-        pre.style.lineHeight = '1.3';    // tighter lines
+        pre.style.margin = '0 0 5px 0';
+        pre.style.fontSize = '13px';   
+        pre.style.lineHeight = '1.3';   
         pre.textContent = `inet: ${e.address || '-'}
         family: ${e.family}
         netmask: ${e.netmask || '-'}
@@ -403,10 +387,8 @@ const ws = new WebSocket(`ws://127.0.0.1:3002`);
 
 ws.onmessage = (event) => {
   const container = document.getElementById('tcpdump-output');
-
-  // Append line nicely
   container.textContent += event.data + '\n';
-  container.scrollTop = container.scrollHeight; // auto scroll
+  container.scrollTop = container.scrollHeight;
 
 };
 </script>

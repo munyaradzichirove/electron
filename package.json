@@ -1,17 +1,47 @@
 {
   "name": "geo-ip-demo",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "WireGuard VPN Client Electron App",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "server": "node server.js",
+    "build": "electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": "Munyaradzi Chirove",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.2.1",
     "node-fetch": "^3.3.2",
     "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "electron": "^40.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.munyaradzi.wireguardvpn",
+    "productName": "WireGuard VPN Client",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "server.js",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
   }
 }
