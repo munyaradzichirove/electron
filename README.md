@@ -24,7 +24,7 @@ Bet bro, I got you. Here’s a **clean, professional README** you can drop strai
 1. **Clone the repository**
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/munyaradzichirove/electron
 cd geo-ip-demo
 ```
 
