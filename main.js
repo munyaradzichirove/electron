@@ -2,6 +2,11 @@ const { app, BrowserWindow } = require("electron");
 const { spawn } = require("child_process");
 const path = require("path");
 
+// Path to server.js (works in dev and packaged app)
+const serverPath = app.isPackaged 
+  ? path.join(process.resourcesPath, "app.asar.unpacked", "server.js") 
+  : path.join(__dirname, "server.js");
+
 let backend;
 
 function createWindow() {
@@ -11,13 +16,22 @@ function createWindow() {
   });
 
   win.loadFile(path.join(__dirname, "public/login.html"));
+
+  win.on("closed", () => {
+    if (backend) backend.kill();
+    backend = null;
+  });
 }
 
 app.whenReady().then(() => {
-  backend = spawn("node", ["server.js"], {
-    cwd: __dirname,
-    stdio: "inherit",
-  });
+  try {
+    backend = spawn("node", [serverPath], {
+      cwd: app.isPackaged ? path.join(process.resourcesPath, "app.asar.unpacked") : __dirname,
+      stdio: "inherit",
+    });
+  } catch (err) {
+    console.error("Failed to start backend:", err);
+  }
 
   createWindow();
 });

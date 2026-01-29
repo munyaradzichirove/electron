@@ -86,6 +86,34 @@ wss.on('connection', (ws) => {
   });
 });
 
+app.post('/vpn/up', (req, res) => {
+  exec('sudo wg-quick up /etc/wireguard/wg0.conf', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error bringing VPN up: ${error.message}`);
+      return res.status(500).json({ success: false, error: error.message });
+    }
+    if (stderr) {
+      console.error(`VPN stderr: ${stderr}`);
+    }
+    console.log(`VPN stdout: ${stdout}`);
+    res.json({ success: true, message: 'VPN is UP' });
+  });
+});
+
+app.post('/vpn/down', (req, res) => {
+  exec('sudo wg-quick down /etc/wireguard/wg0.conf', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error bringing VPN down: ${error.message}`);
+      return res.status(500).json({ success: false, error: error.message });
+    }
+    if (stderr) {
+      console.error(`VPN stderr: ${stderr}`);
+    }
+    console.log(`VPN stdout: ${stdout}`);
+    res.json({ success: true, message: 'VPN is DOWN' });
+  });
+});
+
 tcpdump.stdout.on('data', (data) => {
   const lines = data.toString().split('\n'); 
   for (const line of lines) {

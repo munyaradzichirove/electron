@@ -1,5 +1,5 @@
 {
-  "name": "geo-ip-demo",
+  "name": "wireguard-vpn-client",
   "version": "1.0.0",
   "description": "WireGuard VPN Client Electron App",
   "main": "main.js",
@@ -8,22 +8,22 @@
     "server": "node server.js",
     "build": "electron-builder"
   },
-  "keywords": [],
-  "author": "Munyaradzi Chirove",
+  "keywords": ["vpn", "wireguard", "electron"],
+  "author": "Munyaradzi Chirove <chirovemunyaradzi@gmail.com> 📧 +263 78 610 3016 https://mrchirove.web.app",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^5.2.1",
     "node-fetch": "^3.3.2",
-    "ws": "^8.18.3"
+    "ws": "^8.18.3",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "electron": "^40.0.0",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.6.0"
   },
   "build": {
     "appId": "com.munyaradzi.wireguardvpn",
-    "productName": "WireGuard VPN Client",
+    "productName": "WireGuardVPNClient",
     "directories": {
       "buildResources": "assets"
     },
@@ -34,14 +34,16 @@
       "node_modules/**/*",
       "package.json"
     ],
+    "asarUnpack": ["server.js", "node_modules/**/*"],
     "win": {
       "target": "nsis"
     },
     "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
+      "target": ["AppImage", "deb"],
+      "category": "Utility",
+      "executableName": "wireguard-vpn-client",
+      "artifactName": "wireguard-vpn-client_${version}_${arch}.${ext}",
+      "icon": "assets/icon.png"
     }
   }
 }

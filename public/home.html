@@ -7,8 +7,6 @@
   <title>WireGuard VPN Client</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
-
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -20,11 +18,8 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-
   <link href="assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
 </head>
 
 <body class="index-page">
@@ -32,24 +27,18 @@
     #map { height: 400px; width: 100%; }
     
   </style>
-
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <h1 class="sitename">WireGuard VPN Client</h1>
       </a>
-<a href="#" id="connectionbtn" class="btn btn-success d-inline-flex align-items-center gap-2">
-  <i class="bi bi-wifi-off"></i> Connect
-</a>
- 
+    <a href="#" id="connectionbtn" class="btn btn-success d-inline-flex align-items-center gap-2">
+      <i class="bi bi-wifi-off"></i> Connect
+    </a>
     </div>
   </header>
-
   <style></style>
   <main class="main"  style="margin-top:80px; margin-bottom:40px;">
-   
-     
     <!-- Features Section -->
     <section id="features" class="features section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -91,13 +80,9 @@
                   <span>Monitor live traffic and connection events</span>
                 </div>
               </a>
-            </li><!-- End tab nav item -->
-
-           
+            </li><!-- End tab nav item -->  
           </ul>
-
           <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
             <div class="tab-pane fade active show" id="features-tab-1">
               <div class="row align-items-center">
 
@@ -127,17 +112,14 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="col-lg-7">
                   <div class="visual-content">
                     <div id="map" class="main-image">
                     </div>
                   </div>
                 </div>
-
               </div>
             </div><!-- End tab content item -->
-
             <div class="tab-pane fade" id="features-tab-2">
               <div class="row align-items-center">
 
@@ -181,9 +163,6 @@
                       </div>
                       </div>
                      </div>
-          
-                
-
               </div>
             </div><!-- End tab content item -->
 
@@ -224,19 +203,20 @@
                   <div class="visual-content">
                   <div class="main-image">
                   <div id="tcpdump-output" style="
-                      background-color: #300a24;
-                      color: white;           
-                      font-family: monospace;  
+                      background-color: #300a24; /* dark purple/brownish */
+                      color: white;           /* orange-ish text */
+                      font-family: monospace;   /* terminal font */
                       padding: 10px;
                       max-height: 500px;
                       overflow-y: auto;
-                      white-space: pre;        
+                      white-space: pre;         /* preserve spacing */
                       border-radius: 5px;
                   "></div>
                   </div>
                   </div>
                 </div>
-    </section>
+           
+    </section><!-- /Features Section -->
   </main>
 
 
@@ -248,7 +228,7 @@
           <a href="index.html" class="logo d-flex align-items-center">
             <span class="sitename">WireGuard VPN Client</span>
           </a>
-          <p><Canvas>WireGuard VPN Client lets you stay secure online with minimal setup. Protect your data, maintain privacy, and enjoy fast, stable connections wherever you are.</p>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -281,6 +261,7 @@
 
       </div>
     </div>
+      
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">WireGuard VPN</strong> <span>All Rights Reserved</span></p>
@@ -303,6 +284,7 @@
   async function lookup(ip) {
     try {
       // Hardcoded IP demo if not provided
+
       const res = await fetch(`http://127.0.0.1:3001/getGeo/${ip}`);
       if (!res.ok) throw new Error('Failed to fetch geo info');
 
@@ -328,30 +310,47 @@
       console.error(err);
     }
   }
-
-  // Call the function immediately with hardcoded IP
   var ip="";
   WG_IP="84.247.162.4";
-  const connectionBtn = document.getElementById('connectionbtn');
-  fetch('https://api.ipify.org?format=json')
-    .then(res => res.json())
-    .then(data => {
-      ip=data.ip
-      lookup(ip);
-if(ip === WG_IP) {
-  // WireGuard is connected
-  connectionBtn.className = "btn btn-danger d-inline-flex align-items-center gap-2";
-  connectionBtn.innerHTML = '<i class="bi bi-plug"></i> Disconnect';
-  console.log('WireGuard is connected ' + ip);
-} else {
-  // Not connected
-  connectionBtn.className = "btn btn-success d-inline-flex align-items-center gap-2";
-  connectionBtn.innerHTML = '<i class="bi bi-wifi-off"></i> Connect';
-  console.log('WireGuard is not connected ' + ip);
+const connectionBtn = document.getElementById('connectionbtn');
+
+async function checkVPN() {
+  const res = await fetch('https://api.ipify.org?format=json');
+  const data = await res.json();
+  const ip = data.ip;
+  lookup(data.ip)
+
+  if (ip === WG_IP) {
+    // WireGuard is connected
+    connectionBtn.className = "btn btn-danger d-inline-flex align-items-center gap-2";
+    connectionBtn.innerHTML = '<i class="bi bi-plug"></i> Disconnect';
+    console.log('WireGuard is connected ' + ip);
+  } else {
+    // Not connected
+    connectionBtn.className = "btn btn-success d-inline-flex align-items-center gap-2";
+    connectionBtn.innerHTML = '<i class="bi bi-wifi-off"></i> Connect';
+    console.log('WireGuard is not connected ' + ip);
+  }
 }
 
-    })
-    .catch(err => console.error(err));
+checkVPN();
+
+// --- Handle button click ---
+connectionBtn.addEventListener('click', async () => {
+  try {
+    if (connectionBtn.innerText.includes('Disconnect')) {
+      await fetch('http://127.0.0.1:3001/vpn/down', { method: 'POST' });
+    } else {
+      await fetch('http://127.0.0.1:3001/vpn/up', { method: 'POST' });
+    }
+    // refresh page after action
+    window.location.reload();
+  } catch (err) {
+    console.error('VPN action failed:', err);
+    alert('Failed to change VPN state. Check console.');
+  }
+  setTimeout(checkVPN, 2000); 
+});
 
 </script>
 <script>
@@ -366,7 +365,7 @@ fetch('http://127.0.0.1:3001/interfaces')
 
       entries.forEach(e => {
         const pre = document.createElement('pre');
-        pre.style.margin = '0 0 5px 0';
+        pre.style.margin = '0 0 5px 0'; 
         pre.style.fontSize = '13px';   
         pre.style.lineHeight = '1.3';   
         pre.textContent = `inet: ${e.address || '-'}
@@ -387,8 +386,10 @@ const ws = new WebSocket(`ws://127.0.0.1:3002`);
 
 ws.onmessage = (event) => {
   const container = document.getElementById('tcpdump-output');
+
+  // Append line nicely
   container.textContent += event.data + '\n';
-  container.scrollTop = container.scrollHeight;
+  container.scrollTop = container.scrollHeight; // auto scroll
 
 };
 </script>
